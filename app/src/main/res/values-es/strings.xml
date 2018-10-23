@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Juego</string>
+    <string name="button_play">Jugar</string>
+    <string name="button_rank">Ranking</string>
+    <string name="button_settings">Opciones</string>
+    <string name="button_about">Sobre...</string>
+    <string name="text_inicial">El juego</string>
+    <string name="text_play">El juego</string>
+    <string name="text_rank">El ranking</string>
+    <string name="textDeveloper">Desarollador: Alvaro Salomoni</string>
+    <string name="textExplain">Alumno DAM2 haciendo practica1 de Android</string>
+    <string name="textEmail">e-mail</string>
+    <string name="textName">Nombre</string>
+    <string name="button_photo">Cambia tu foto</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="button_mapa">Mapa</string>
+</resources>
