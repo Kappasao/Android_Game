@@ -100,23 +100,17 @@ public class Settings extends AppCompatActivity {
         if (requestCode == GALLERY) {
             if (data != null) {
                 contentURI = data.getData();
-                try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
-                    String path = saveImage(bitmap);
-                    Toast.makeText(Settings.this, "Image Saved!", Toast.LENGTH_SHORT).show();
-                    imageview.setImageBitmap(bitmap);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast.makeText(Settings.this, "Failed!", Toast.LENGTH_SHORT).show();
-                }
+                imageview.setImageURI(contentURI);
+                SharedPreferences prefs = getSharedPreferences(getPackageName(), MODE_PRIVATE);
+                SharedPreferences.Editor ed = prefs.edit();
+                ed.putString("img",contentURI.toString());
+                ed.apply();
             }
 
         } else if (requestCode == CAMERA) {
             Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
             imageview.setImageBitmap(thumbnail);
             saveImage(thumbnail);
-            Toast.makeText(Settings.this, "Image Saved!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -168,7 +162,6 @@ public class Settings extends AppCompatActivity {
         String email = editEmail.getText().toString();
         SharedPreferences prefs = getSharedPreferences(getPackageName(), MODE_PRIVATE);
         SharedPreferences.Editor ed = prefs.edit();
-        ed.putString("url", contentURI.toString());
         ed.putString("name",name);
         ed.putString("email",email);
         ed.apply();
